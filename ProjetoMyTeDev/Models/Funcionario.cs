@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoMyTeDev.Models
 {
-    public class  Funcionario
+    public class  Funcionario : IdentityUser
     {
         public int FuncionarioId { get; set; }
 
@@ -14,7 +14,7 @@ namespace ProjetoMyTeDev.Models
         [EmailAddress(ErrorMessage = "O campo Email não é um endereço válido.")]
         [Display(Name = "Email")]
         [Required]
-        public string Email { get; set; }
+        public override string Email { get; set; }
 
         [Required]
         public string Senha { get; set; }
@@ -41,7 +41,5 @@ namespace ProjetoMyTeDev.Models
         [Display(Name = "Cargo")]
         [Required]
         public int CargoId { get; set; }
-        
-
     }
 }

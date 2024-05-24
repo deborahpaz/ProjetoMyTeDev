@@ -4,7 +4,7 @@ using ProjetoMyTeDev.Models;
 
 namespace ProjetoMyTeDev.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<Funcionario>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
