@@ -1,4 +1,4 @@
-﻿document.querySelector('#salvar-horas').addEventListener('click', function (e) {
+﻿﻿document.querySelector('#salvar-horas').addEventListener('click', function (e) {
     e.preventDefault();
 
     let quinzenaAtual = [], wbs = [], horas = [], registros = [];
