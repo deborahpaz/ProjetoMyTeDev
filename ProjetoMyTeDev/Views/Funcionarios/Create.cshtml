@@ -4,7 +4,7 @@
     ViewData["Title"] = "Cadastrar Funcionário";
 }
 
-<h1>Cadastrar Novo Funcionário</h1>
+<h3>Cadastrar Novo Funcionário</h3>
 
 <hr />
 <div class="row">
@@ -29,47 +29,53 @@
                     <input asp-for="Senha" class="form-control" />
                     <span asp-validation-for="Senha" class="text-danger"></span>
                 </div>
-                </div>
+            </div>
 
-                <div class="col-md">
-                    <div class="row">
-                        <div class="form-group col-md-5">
-                            <label asp-for="DepartamentoId" class="control-label"></label>
-                            <select asp-for="DepartamentoId" class="form-select" asp-items="ViewBag.DepartamentoId"></select>
-                            <span asp-validation-for="DepartamentoId" class="text-danger"></span>
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label asp-for="NivelAcessoId" class="control-label"></label>
-                            <select asp-for="NivelAcessoId" class="form-select" asp-items="ViewBag.NivelAcessoId"></select>
-                            <span asp-validation-for="NivelAcessoId" class="text-danger"></span>
-                        </div>
-                        
+            <div class="col-md">
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label asp-for="DepartamentoId" class="control-label"></label>
+                        <select asp-for="DepartamentoId" class="form-select" asp-items="ViewBag.DepartamentoId"></select>
+                        <span asp-validation-for="DepartamentoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label asp-for="NivelAcessoId" class="control-label"></label>
+                        <select asp-for="NivelAcessoId" class="form-select" asp-items="ViewBag.NivelAcessoId"></select>
+                        <span asp-validation-for="NivelAcessoId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label asp-for="DataContratacao" class="control-label"></label>
+                        <input asp-for="DataContratacao" type="date" class="form-control" />
+                        <span asp-validation-for="DataContratacao" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>Localidade</label>
+                        <select asp-for="Localidade" class="form-select">
+                            <option value="Recife">Recife</option>
+                            <option value="São Paulo">São Paulo</option>
+                            <option value="Rio de Janeiro">Rio de Janeiro</option>
+                            <option value="Nova Lima">Nova Lima</option>
+                        </select>
+                        <span asp-validation-for="Localidade" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="CargoId" class="control-label"></label>
+                        <select asp-for="CargoId" class="form-select" asp-items="ViewBag.CargoId"></select>
+                        <span asp-validation-for="CargoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Cadastrar" class="btn btn-secondary my-4" />
+                        <a asp-area="" asp-controller="Funcionarios" asp-action="Index" class="btn btn-secondary my-4">Voltar</a>
                     </div>
                 </div>
-
-                <div class="col-md">
-                    <div class="row">
-                        <div class="form-group col-md-3">
-                            <label>Localidade</label>
-                            <select asp-for="Localidade" class="form-select">
-                                <option value="Recife">Recife</option>
-                                <option value="São Paulo">São Paulo</option>
-                                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                                <option value="Nova Lima">Nova Lima</option>
-                            </select>
-                            <span asp-validation-for="Localidade" class="text-danger"></span>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label asp-for="CargoId" class="control-label"></label>
-                            <select asp-for="CargoId" class="form-select" asp-items="ViewBag.CargoId"></select>
-                            <span asp-validation-for="CargoId" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Cadastrar" class="btn btn-secondary my-4" />
-                            <a asp-area="" asp-controller="Funcionarios" asp-action="Index" class="btn btn-secondary my-4">Voltar</a>
-                        </div>
-                    </div>
-                </div>
+            </div>
         </form>
     </div>
 </div>
