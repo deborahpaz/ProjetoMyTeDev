@@ -9,11 +9,11 @@ using ProjetoMyTeDev.Data;
 
 #nullable disable
 
-namespace ProjetoMyTeDev.Data.Migrations
+namespace ProjetoMyTeDev.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240522185710_Mig17")]
-    partial class Mig17
+    [Migration("20240530173045_filtro2")]
+    partial class filtro2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

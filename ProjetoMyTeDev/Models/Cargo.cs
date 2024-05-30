@@ -8,7 +8,7 @@ namespace ProjetoMyTeDev.Models
 
         [Required]
         [Display(Name = "Nome do Cargo")]
-        public string CargoNome { get; set; }
+        public string? CargoNome { get; set; }
 
         [Required]
         [Display(Name = "Carga Horária")]

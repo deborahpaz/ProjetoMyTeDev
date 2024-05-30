@@ -9,6 +9,7 @@ using ProjetoMyTeDev.Data;
 using ProjetoMyTeDev.Models;
 using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
 
 namespace ProjetoMyTeDev.Controllers
 {
@@ -23,15 +24,47 @@ namespace ProjetoMyTeDev.Controllers
 
         [Authorize(Policy = "RequerPerfilAdmin")]
         // GET: Funcionarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Funcionario
-                .Include(f => f.Cargo)
-                .Include(f => f.Departamento)
-                .Include(f => f.NivelAcesso);
+            ViewData["CurrentFilter"] = searchString;
 
-            return View(await applicationDbContext.ToListAsync());
+            var funcionarios = await _context.Funcionario
+                               .Include(f => f.Cargo)
+                               .Include(f => f.Departamento)
+                               .Include(f => f.NivelAcesso)
+                               .ToListAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                funcionarios = funcionarios
+            .Where(f => RemoveDiacritics(f.FuncionarioNome.ToLower()).Contains(RemoveDiacritics(searchString.ToLower())))
+            .ToList();
+            }
+
+            return View(funcionarios);
         }
+
+        private static string RemoveDiacritics(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return text;
+
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+
 
         // GET: Funcionarios/Details/5
         public async Task<IActionResult> Details(int? id)

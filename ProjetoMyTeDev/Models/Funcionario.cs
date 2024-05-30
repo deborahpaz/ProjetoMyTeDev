@@ -29,10 +29,12 @@ namespace ProjetoMyTeDev.Models
         [Display(Name = "Acesso")]
         public NivelAcesso? NivelAcesso { get; set; }
 
+        [Required]
         [Display(Name = "Data de Contratação")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DataContratacao { get; set; }
 
+        [Required]
         public string? Localidade { get; set; }
 
         public Cargo? Cargo { get; set; }
