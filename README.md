@@ -45,7 +45,7 @@ Os usuários têm uma tela de lançamento de horas para registrar as horas traba
 ### 4. Navegação entre Quinzenas
 Os usuários podem navegar entre as quinzenas na tela de lançamento de horas.
 
-### 5. Relatórios no Power BI
+### 5. Relatórios no Power BI - A implementar
 Gerentes de projeto podem acessar relatórios no Power BI para analisar dados relacionados às WBS com mais apontamentos de horas.
 
 ## Pré-requisitos
